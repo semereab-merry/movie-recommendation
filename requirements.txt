@@ -1,2 +1,8 @@
 flask
 joblib
+numpy
+pandas
+scikit-learn
+kagglehub
+ast
+scipy
