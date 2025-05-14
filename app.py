@@ -6,14 +6,16 @@ import gdown
 app = Flask(__name__)
 
 # Load your trained recommendation model
-model_path = "movie_recommender.pkl"
+model_path = "model.pkl"
 file_id = "1zYF5aBPaQUjz89xAQL9-WcUXlFnwIej2"  # from shareable link
 url = f"https://drive.google.com/uc?id={file_id}"
 
 if not os.path.exists(model_path):
     print("Downloading model...")
     gdown.download(url, model_path, quiet=False)
-    
+
+model = joblib.load("movie.pkl")
+
 @app.route('/')
 def home():
     return render_template('index.html')
