@@ -14,7 +14,7 @@ if not os.path.exists(model_path):
     print("Downloading model...")
     gdown.download(url, model_path, quiet=False)
 
-model = joblib.load("movie.pkl")
+model = joblib.load(model_path)
 
 @app.route('/')
 def home():
