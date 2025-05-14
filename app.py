@@ -1,12 +1,19 @@
 from flask import Flask, request, jsonify, render_template
 import joblib
 import os
+import gdown
 
 app = Flask(__name__)
 
 # Load your trained recommendation model
-model = joblib.load('model.pkl')
+model_path = "movie_recommender.pkl"
+file_id = "1AbCDEF12345yourID"  # from shareable link
+url = f"https://drive.google.com/uc?id={file_id}"
 
+if not os.path.exists(model_path):
+    print("Downloading model...")
+    gdown.download(url, model_path, quiet=False)
+    
 @app.route('/')
 def home():
     return render_template('index.html')
