@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Load your trained recommendation model
 model_path = "movie_recommender.pkl"
-file_id = "1AbCDEF12345yourID"  # from shareable link
+file_id = "1zYF5aBPaQUjz89xAQL9-WcUXlFnwIej2"  # from shareable link
 url = f"https://drive.google.com/uc?id={file_id}"
 
 if not os.path.exists(model_path):
