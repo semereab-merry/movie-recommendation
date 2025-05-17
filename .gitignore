@@ -9,3 +9,4 @@ venv/
 
 # VSCode settings
 .vscode/
+.DS_Store
