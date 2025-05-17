@@ -1,6 +1,6 @@
 # Movie Recommendation System
 
- 🚀 **Live Demo**: <a href="" target="_blank">Click here to try it out!</a>
+ 🚀 **Live Demo**: <a href="https://huggingface.co/spaces/merryzrs/movie-recommender" target="_blank">Click here to try it out!</a>
 
 Welcome to the **Movie Recommendation System** – an interactive web application that suggests similar movies based on your input. I built this project using a content-based filtering approach trained on the [TMDB Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata).
 
