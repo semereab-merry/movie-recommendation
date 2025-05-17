@@ -1,1 +1,11 @@
 kaggle.json
+model.pkl
+
+# Byte-compiled files
+__pycache__/
+
+# Virtual environment
+venv/
+
+# VSCode settings
+.vscode/

@@ -2,20 +2,20 @@ from flask import Flask, request, jsonify, render_template
 import joblib
 import os
 import gdown
+from recommender import MovieRecommender
 
 app = Flask(__name__)
 
-# Correct file path and name
 model_path = "model.pkl"
-file_id = "1zYF5aBPaQUjz89xAQL9-WcUXlFnwIej2"  
-url = f"https://drive.google.com/uc?id={file_id}"
+file_id = "1ZSrCpf0KbAo5MM4zxT7CXrYI6BdPAnuz"
+gdrive_url = f"https://drive.google.com/uc?id={file_id}"
 
-# Download model if not already downloaded
+# Download if the model doesn't already exist
 if not os.path.exists(model_path):
-    print("Downloading model...")
-    gdown.download(url, model_path, quiet=False)
+    print("Model not found locally. Downloading from Google Drive...")
+    gdown.download(gdrive_url, model_path, quiet=False)
 
-# Load the model from the correct path
+# Now load the model
 model = joblib.load(model_path)
 
 @app.route('/')
@@ -33,5 +33,5 @@ def recommend():
     return jsonify({'recommendations': recommendations})
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5001))
     app.run(host='0.0.0.0', port=port)
