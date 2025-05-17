@@ -1,32 +1,200 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Movie Recommender</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 2em; background: #f5f5f5; }
-        input, button { padding: 0.5em; font-size: 1em; margin-right: 0.5em; }
-        #results { margin-top: 1em; }
-    </style>
-</head>
-<body>
-    <h2>Movie Recommendation System</h2>
-    <input id="movieInput" placeholder="Enter a movie name">
-    <button onclick="getRecommendations()">Recommend</button>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Movie Recommender</title>
+		<link
+			rel="icon"
+			href="https://img.icons8.com/?size=100&id=8WmnIiAw94AJ&format=png&color=FAB005"
+			type="image/png"
+		/>
 
-    <div id="results"></div>
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
 
-    <script>
-    async function getRecommendations() {
-        const movie = document.getElementById('movieInput').value;
-        const res = await fetch('/recommend', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ movie: movie })
-        });
-        const data = await res.json();
-        const list = data.recommendations.map(title => `<li>${title}</li>`).join('');
-        document.getElementById('results').innerHTML = `<h3>Recommended Movies:</h3><ul>${list}</ul>`;
-    }
-    </script>
-</body>
+			body {
+				font-family: "Arial", sans-serif;
+				background: #121212;
+				color: #f0f0f0;
+				padding: 2em;
+				max-width: 800px;
+				margin: auto;
+			}
+
+			h2 {
+				font-family: "Orbitron", sans-serif;
+				font-size: 2em;
+				margin-bottom: 0.5em;
+				color: #ffcc00;
+			}
+
+			input,
+			button {
+				padding: 0.6em;
+				font-size: 1em;
+				border: none;
+				border-radius: 4px;
+			}
+
+			input {
+				width: 60%;
+				background-color: #2c2c2c;
+				color: white;
+			}
+
+			button {
+				background-color: #ffcc00;
+				color: #000;
+				cursor: pointer;
+			}
+
+			button:hover {
+				background-color: #e6b800;
+			}
+
+			#results {
+				margin-top: 1.5em;
+				background-color: #1e1e1e;
+				padding: 1em;
+				border-radius: 6px;
+				height: 200px;
+			}
+
+			a {
+				color: #ffcc00;
+				text-decoration: none;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+			.info,
+			.footer {
+				margin-top: 2em;
+				font-size: 0.9em;
+				color: #ccc;
+			}
+
+			.popular {
+				margin-top: 1em;
+			}
+
+			.popular li {
+				margin-bottom: 4px;
+			}
+
+			.footer {
+				display: flex;
+				position: fixed;
+				text-align: center;
+				align-items: center;
+				font-size: 0.8em;
+				color: #777;
+				margin-bottom: 20px;
+				bottom: 0;
+				justify-content: space-evenly;
+				gap: 1.5em;
+				flex-wrap: wrap;
+			}
+			.footer a {
+				color: #ffcc00;
+				text-decoration: none;
+			}
+			.footer a:hover {
+				text-decoration: underline;
+			}
+
+			ul {
+				list-style: circle;
+				padding-left: 1.5em;
+			}
+
+			::selection {
+				background: #ffcc00;
+				color: #000000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2>Movie Recommendation System</h2>
+
+		<div class="info">
+			<p>
+				View the original dataset here:
+				<a
+					href="https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata"
+					target="_blank"
+					>TMDB Movie Dataset on Kaggle</a
+				>
+			</p>
+			<br />
+			<p>
+				<strong>Note:</strong> Movie names are
+				<strong>case sensitive</strong>. Please type the title exactly
+				as it appears in the dataset.
+			</p>
+		</div>
+
+		<input id="movieInput" placeholder="Type a movie title, e.g. Avatar" />
+		<button onclick="getRecommendations()">Recommend</button>
+
+		<div id="results"></div>
+
+		<div class="popular">
+			<p><strong>Popular movie titles to try:</strong></p>
+			<ul>
+				<li>Avatar</li>
+				<li>Alice in Wonderland</li>
+				<li>The Dark Knight</li>
+				<li>Cars 2</li>
+				<li>Pirates of the Caribbean: At World's End</li>
+			</ul>
+		</div>
+
+		<div class="footer">
+			<span>Developed by: <strong>Merry Semereab</strong></span>
+			<span>• 2025 •</span>
+			<span>
+				<a
+					href="https://github.com/semereab-merry/movie-recommendation"
+					target="_blank"
+				>
+					GitHub Repo
+				</a>
+			</span>
+		</div>
+
+		<script>
+			async function getRecommendations() {
+				const movie = document.getElementById("movieInput").value;
+				if (!movie) {
+					alert("Please enter a movie name.");
+					return;
+				}
+
+				const res = await fetch("/recommend", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ movie: movie }),
+				});
+
+				const data = await res.json();
+
+				if (data.recommendations && data.recommendations.length > 0) {
+					const list = data.recommendations
+						.map((title) => `<li>${title}</li>`)
+						.join("");
+					document.getElementById(
+						"results"
+					).innerHTML = `<h3>Recommended Movies:</h3><ul>${list}</ul>`;
+				} else {
+					document.getElementById(
+						"results"
+					).innerHTML = `<p>No recommendations found. Try a different movie title.</p>`;
+				}
+			}
+		</script>
+	</body>
 </html>

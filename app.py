@@ -7,7 +7,7 @@ from recommender import MovieRecommender
 app = Flask(__name__)
 
 model_path = "model.pkl"
-file_id = "1ZSrCpf0KbAo5MM4zxT7CXrYI6BdPAnuz"
+file_id = "1W_FyX1rzrak9r2uK93FM4i7cHHDrQP3O"
 gdrive_url = f"https://drive.google.com/uc?id={file_id}"
 
 # Download if the model doesn't already exist
