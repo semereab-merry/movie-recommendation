@@ -1,6 +1,6 @@
 # Movie Recommendation System
 
- 🚀 **Live Demo**: <a href="https://huggingface.co/spaces/merryzrs/movie-recommender" target="_blank">Click here to try it out!</a>
+ 🚀 **Live Demo**: <a href="https://huggingface.co/spaces/merryzrs/movie-recommender">Click here to try it out!</a>
 
 Welcome to the **Movie Recommendation System** – an interactive web application that suggests similar movies based on your input. I built this project using a content-based filtering approach trained on the [TMDB Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata).
 
@@ -19,7 +19,7 @@ I used a **content-based recommendation** system that analyzes metadata such as 
 2. **Feature Engineering**:  I created a pivot table of movie features, converting categorical and textual attributes into numerical form. This pivot table was then transformed into a sparse matrix using csr_matrix from SciPy to efficiently represent the high-dimensional data.
 3. **Model Training**: I used the NearestNeighbors algorithm with the cosine distance metric to find similar movies based on the feature matrix.
 4. **Recommendation Function**:  I implemented a function that accepts a movie title, finds its index, and retrieves the top 5 most similar movies.
-5. **Deployment**:I built a Flask backend and served a minimal frontend UI. Due to the large model size (~630MB), I hosted the model on Google Drive and loaded it using gdown during app startup.
+5. **Deployment**:The app is uploaded into Huggingface; along with the model for deployement. 
 
 ##  How to Use
 
@@ -35,7 +35,7 @@ I used a **content-based recommendation** system that analyzes metadata such as 
 - Scikit-learn, Pandas, Joblib
 - HTML, JavaScript, CSS
 - Google Drive + GDown
-- Replit (for deployment)
+- Huggingface (for deployment)
 
 
 ## Conclusion
