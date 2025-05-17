@@ -1,10 +1,8 @@
 # Movie Recommendation System
 
-Welcome to the **Movie Recommendation System** – an interactive web application that suggests similar movies based on your input. I built this project using a content-based filtering approach trained on the [TMDB Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata).
+ 🚀 **Live Demo**: [Click here to try it out!](https://huggingface.co/spaces/merryzrs/movie-recommender)
 
-<!---
- 🚀 **Live Demo**: [Click here to try it out!](https://)
- -->
+Welcome to the **Movie Recommendation System** – an interactive web application that suggests similar movies based on your input. I built this project using a content-based filtering approach trained on the [TMDB Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata).
 
 
 
@@ -23,14 +21,12 @@ I used a **content-based recommendation** system that analyzes metadata such as 
 4. **Recommendation Function**:  I implemented a function that accepts a movie title, finds its index, and retrieves the top 5 most similar movies.
 5. **Deployment**:I built a Flask backend and served a minimal frontend UI. Due to the large model size (~630MB), I hosted the model on Google Drive and loaded it using gdown during app startup.
 
-<!--
 ##  How to Use
 
-1. Visit the [live demo](https://)
+1. Visit the [live demo](https://huggingface.co/spaces/merryzrs/movie-recommender)
 2. Enter a **case-sensitive** movie title (e.g., `Avatar`)
 3. Click "Recommend" to view similar movies
 4. Enjoy the suggestions!
--->
 
 
 ## Technologies Used
