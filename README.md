@@ -34,7 +34,6 @@ I used a **content-based recommendation** system that analyzes metadata such as 
 - Python, Flask
 - Scikit-learn, Pandas, Joblib
 - HTML, JavaScript, CSS
-- Google Drive + GDown
 - Huggingface (for deployment)
 
 
