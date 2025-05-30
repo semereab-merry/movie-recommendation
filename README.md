@@ -4,7 +4,7 @@
  <h4> <a href=https://huggingface.co/spaces/merryzrs/movie-recommender>View Demo</a> <span> · </span> <a href="https://github.com/semereab-merry/movie-recommendation/blob/master/README.md"> Documentation </a> <span> · </span> <a href="https://github.com/semereab-merry/movie-recommendation/issues"> Report Bug </a> <span> · </span> <a href="https://github.com/semereab-merry/movie-recommendation/issues"> Request Feature </a> </h4>
 </div>
 
-<img src='Live_Demo.png'/>
+<img src='templates/Live_Demo.png'/>
  
 Welcome to the **Movie Recommendation System** – an interactive web application that suggests similar movies based on your input. I built this project using a content-based filtering approach trained on the [TMDB Movie Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata).
 
